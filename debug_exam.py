@@ -1,4 +1,37 @@
-#The answer for 5b corrected code ENG19cs0052
+# 5th question eng19cs0052
+'''
+This function takes two arguments,
+data1 and data2, which contain
+key-value pairs. All key-value
+pairs within data1 are unique.
+Similarly, all key-value pairs
+within data2 are unique. However,
+there may be key-value pairs (k, v1)
+in data1 and (k, v2) in data2 with a
+common key k. In this case, v1 and
+v2 may be the same, or v1 and v2 may
+be different.
+
+This function should modify only
+data1 and return a (possibly empty)
+dictionary as follows:
+For every key-value pair (k, v2) in
+data2, if no key-value pair with key
+k exists in data1, then the pair
+(k, v2) should be added to data1.
+Otherwise, there is a unique pair
+(k, v1) already in data1. If v1 and
+v2 are different, the pair (k, v1)
+should be removed from data1 and the
+key-value pair (k, [v1, v2]) should
+be added to the (initially empty)
+dictionary to be returned.
+
+In this implementation, data1 is a
+dictionary and data2 is a list where
+each key-value pair in data2 is also
+a list [key, value] of length 2.
+'''
 
 def uniqueUpdate(data1, data2):
 # Initially empty dictionary
@@ -20,12 +53,42 @@ def uniqueUpdate(data1, data2):
 # After processing all (k, v2) in data2, return the dictionary
     return dupKeys
 
+'''
+Visualize this function on an example:
+https://tinyurl.com/...
+'''
 
 ## DO NOT MODIFY BELOW THIS LINE! ##
+'''
+This part of the code reads input in
+the following format:
 
+Line 1: A positive integer n1
+representing the number of key value
+pairs in data1
+Lines 2 to n1+1: Two integers k v
+per line representing the key and
+value (these n1 key value pairs are
+added to data1)
+Line n1+2: A positive integer n2
+representing the number of key value
+pairs in data2
+Lines n1+3 to n1+n2+2: Two integers
+k and v per line representing the
+key and value (these n2 key value
+pairs are added to data2)
+
+This also prints the output in the
+following format after calling the
+uniqueUpdate function:
+
+data1
+data2 (should remain the same)
+dup (the dictionary returned)
+'''
 
 import sys
-if _name_ == '_main_':
+if name == 'main':
     data1 = {}
 n1 = int(input())
 for _ in range(n1):
@@ -46,46 +109,42 @@ print(data1)
 print(data2)
 print(dup)
 
-"""
-5 A 
-Input :
+
+'''
+5A
+Input:
 3
 1 2
 2 2
 8 7
-
 2
 3 3
 4 4
+When key does not exist in data1, the key pair value is not added to it.
 
-So the error is that when the key does not exist in data 1, the key value pair is not added to it
+5B Already updated in the code
 
-5 B The code above is corrected.
- 
-5 C
-
-Test Case 1
+5C
+Test case 1:
 4
 1 2
-14 14
+3 3
 3 8
 4 9
-
 2
 3 3
 4 4
 
-Test Case 2
-4
+Test case 2:
+4 
 1 2
 2 2
+3 3 
+4 19
+2 
 3 3
 4 19
-2
-3 3
-4
-1 9
 
-Test Case 3
-We can use the test case for 5A part
-"""
+Test case 3:
+Use the test case in 5A
+'''
